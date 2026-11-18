@@ -115,7 +115,7 @@ scripts/           the firmware-size helper behind `make size`
   propagated; the firmware favours staying alive.
 - Module-level `//!` doc comments explain *why* - design rationale, spec
   references, hardware quirks. Keep `//` comments for non-obvious reasoning.
-- Matter test credentials (VID `0xFFF1`, PID `0x8010`, `TEST_DEV_*`). Not
+- Matter test credentials (VID `0xFFF1`, PID `0x8001`, `TEST_DEV_*`). Not
   certifiable; change only with intent.
 
 ## Testing

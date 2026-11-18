@@ -4,6 +4,9 @@
 
 - The `nightly` toolchain with `rust-src`, pinned in `rust-toolchain.toml`.
 - [`espflash`](https://github.com/esp-rs/espflash) on `PATH`, to flash.
+- `clang` and `cmake`, for the `mbedtls` C build. GitHub's Ubuntu runners ship
+  both; a fresh Linux machine may not (`apt install clang cmake`), and the build
+  then fails with `is cmake not installed?`.
 - On macOS, a riscv-capable clang (see below).
 
 ## The targets

@@ -9,8 +9,8 @@ capacitive soil probe, three status LEDs, a button and an AA battery holder
 on a XIAO ESP32-C6 carrier).
 
 > **Disclaimer**: like the C++ firmware, this uses Matter test
-> credentials (vendor ID `0xFFF1`, product ID `0x8010`) and is not
-> CSA-certified. Ecosystems will warn about an uncertified device during
+> credentials (vendor ID `0xFFF1`, product ID `0x8001`, rs-matter's
+> `TEST_PID`) and is not CSA-certified. Ecosystems will warn about an uncertified device during
 > commissioning - that warning is expected. You assume all responsibility
 > for any damage, data loss, or device failure.
 
