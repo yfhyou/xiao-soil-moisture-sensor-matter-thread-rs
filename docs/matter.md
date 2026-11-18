@@ -185,6 +185,9 @@ further. At the time of writing Home Assistant and SmartThings register for
 Check-Ins; Google Home and Apple Home had implemented it internally but not
 shipped it. On any of those, the device falls back to SIT and never sleeps.
 
+Supporting registration is not the same as doing it unprompted: Home
+Assistant registers only once asked to (see [Home Assistant](#home-assistant)).
+
 The way to tell which mode you are in, from a serial log:
 
 ```
@@ -200,3 +203,19 @@ ICD idle: deep-sleeping for ...
 ... reboot ...
 Woken up from deep sleep by the timer
 ```
+
+### Home Assistant
+
+Tested with Home Assistant 2026.11, whose Matter Server is `matterjs-server`.
+Two of its settings are needed, and neither is the default:
+
+1. **Accept test certificates.** Turn on the Matter Server add-on's test-net
+   DCL option and restart the add-on. Without it, commissioning stops at device
+   attestation, and the add-on's log says the device uses a test/development
+   certificate.
+2. **Register for Check-Ins.** After commissioning, open the Matter Server web
+   UI, select the node, and set **Power & Sleep (ICD)** to its LIT mode
+   ("Battery saver"). The device then logs
+   `ICD: registered fabric ... check-in node ...` and starts deep-sleeping.
+   The panel refuses a node that is offline, so do this while the device is
+   still awake: it stays in SIT, and awake, until a client registers.

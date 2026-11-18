@@ -204,6 +204,15 @@ commission an uncertified test-credential device. Commission it the same
 way you would any Matter-over-Thread accessory; expect an "uncertified
 device" warning, which is expected (see the disclaimer above).
 
+A controller may also need settings of its own before the device is accepted
+and allowed to sleep. Those, Home Assistant's included, are in
+[Controller support](docs/matter.md#controller-support).
+
+Commissioning from an Android phone leaves the phone's own fabric on the
+device, next to the controller's. That fabric does not register for
+Check-Ins, so it loses reachability once the device sleeps (see "Two fabrics
+is a trap" under [Known limitations](#known-limitations)).
+
 ## Where things live
 
 The firmware is four crates, split by what each one is allowed to know: the
